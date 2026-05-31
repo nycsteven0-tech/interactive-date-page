@@ -1,3 +1,4 @@
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwGf0e_5TLfin7Lgbs7W-DCfKsNZDvJWaP2JB9h4YqxsO6EZ6IH52IriDN55WXgArQ/exec";
 let currentPage = 1;
 
 // PAGE NAVIGATION
@@ -13,6 +14,8 @@ function nextPage(page) {
 
 // YES BUTTON
 function sayYes() {
+  sendToSheet("Yes 😍");
+
   document.getElementById("page3").classList.remove("active");
   document.getElementById("page4").classList.add("active");
 
@@ -34,9 +37,10 @@ function sayYes() {
 
 // NO BUTTON (safe)
 function sayNo() {
+  sendToSheet("No 🙈");
+
   alert("That answer is currently under review... 🤔");
 }
-
 // INIT ON LOAD
 window.addEventListener("DOMContentLoaded", () => {
   const page1 = document.getElementById("page1");
@@ -134,3 +138,13 @@ function createHeart() {
 setTimeout(() => {
   document.querySelector("#page4 h1").style.transform = "scale(1.05)";
 }, 500);
+
+function sendToSheet(answer) {
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      answer: answer,
+      time: new Date().toLocaleString()
+    })
+  }).catch(err => console.log("Error sending:", err));
+}
