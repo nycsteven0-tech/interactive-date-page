@@ -55,18 +55,27 @@ window.addEventListener("DOMContentLoaded", () => {
 // RUNAWAY BUTTON
 function moveButton() {
   const noBtn = document.getElementById("noBtn");
+  const container = document.querySelector(".container");
 
-  const x = Math.random() * (window.innerWidth - 120);
-  const y = Math.random() * (window.innerHeight - 120);
+  const containerRect = container.getBoundingClientRect();
+
+  const x = Math.random() * (containerRect.width - 150);
+  const y = Math.random() * (containerRect.height - 100);
 
   noBtn.style.position = "absolute";
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 
-  const phrases = ["Nah 😏", "Try again 😂", "Not today 😌"];
-  noBtn.innerText = phrases[Math.floor(Math.random() * phrases.length)];
-}
+  const phrases = [
+    "Nah 😏",
+    "Try again 😂",
+    "Not today 😌",
+    "You sure? 👀"
+  ];
 
+  noBtn.innerText =
+    phrases[Math.floor(Math.random() * phrases.length)];
+}
 // TYPE MESSAGE
 function typeMessage() {
   const el = document.getElementById("finalText");
