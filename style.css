@@ -31,7 +31,7 @@ body {
   margin: 60px auto;
   padding: 50px 40px;
 
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 
