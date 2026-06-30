@@ -268,3 +268,9 @@ button:hover {
   font-weight: 600;
   font-size: 1.15rem;
 }
+
+.question-subtitle {
+  opacity: 0.85;
+  font-style: italic;
+  margin-bottom: 25px;
+}
