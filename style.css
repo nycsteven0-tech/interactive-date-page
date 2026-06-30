@@ -9,6 +9,11 @@ body {
   background-size: 400% 400%;
   animation: gradientBG 12s ease infinite;
   transition: box-shadow 0.1s ease, filter 0.1s ease;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes gradientBG {
