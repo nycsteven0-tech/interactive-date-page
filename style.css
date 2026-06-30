@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 20px;
   text-align: center;
@@ -26,6 +26,31 @@ body {
 .container {
   position: relative;
   z-index: 2;
+
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 50px 40px;
+
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 30px;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.22),
+    0 0 25px rgba(255, 255, 255, 0.12);
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .page {
@@ -42,16 +67,36 @@ body {
 }
 
 button {
-  padding: 12px 20px;
+  width: 220px;
+  max-width: 80%;
+
+  padding: 15px 25px;
   margin-top: 20px;
+
   border: none;
-  border-radius: 10px;
+  border-radius: 50px;
+
   cursor: pointer;
-  font-size: 16px;
+
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.22);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .yes {
@@ -67,12 +112,6 @@ button:hover {
 
 #noBtn {
   transition: 0.2s ease;
-}
-
-
-button {
-  width: 200px;
-  max-width: 80%;
 }
 
 .heart {
@@ -154,4 +193,48 @@ button {
 .subtext {
   opacity: 0.85;
   font-size: 1.1rem;
+}
+
+.date-box {
+  margin-top: 30px;
+}
+
+.date-box label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.date-box input {
+  width: 260px;
+  max-width: 90%;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 15px;
+
+  font-size: 1rem;
+  font-family: inherit;
+  text-align: center;
+
+  margin-bottom: 15px;
+
+  background: rgba(255,255,255,0.9);
+  color: #333;
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.date-box input:focus {
+  outline: none;
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+.send-choice {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  color: white;
 }
