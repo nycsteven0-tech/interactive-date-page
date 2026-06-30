@@ -14,7 +14,7 @@ function nextPage(page) {
 
 // YES BUTTON
 function sayYes() {
-  sendToSheet("Yes 😍");
+  sendToSheet("Yes 😍 - Waiting for date/time");
 
   document.getElementById("page3").classList.remove("active");
   document.getElementById("page4").classList.add("active");
@@ -147,4 +147,26 @@ function sendToSheet(answer) {
       time: new Date().toLocaleString()
     })
   }).catch(err => console.log("Error sending:", err));
+}
+
+function submitDate() {
+  const date = document.getElementById("datePicker").value;
+  const time = document.getElementById("timePicker").value;
+  const finalText = document.getElementById("finalText");
+
+  if (!date || !time) {
+    alert("Pick a date and time first ❤️");
+    return;
+  }
+
+  const dateTimeAnswer = `She picked ${date} at ${time} ❤️`;
+
+  sendToSheet(dateTimeAnswer);
+
+  finalText.innerHTML = `
+    ✨ Perfect ❤️ Your reservation with Steven has been confirmed ✨<br><br>
+    📅 <strong>${date}</strong><br>
+    🕒 <strong>${time}</strong><br><br>
+    Looking forward to seeing you 😌
+  `;
 }
