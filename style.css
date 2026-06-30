@@ -274,3 +274,16 @@ button:hover {
   font-style: italic;
   margin-bottom: 25px;
 }
+
+.big-heart {
+  font-size: 3rem;
+  margin: 20px 0;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.2); }
+}
