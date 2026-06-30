@@ -116,7 +116,7 @@ button:hover {
 }
 
 .yes {
-  background: #2ecc71;
+  background: linear-gradient(45deg, #2ecc71, #27ae60);
   color: white;
 }
 
