@@ -57,18 +57,46 @@
         <p class="subtext">Now pick a day and time that works for you 😎</p>
         <p>I can't wait to make some good memories together 😌</p>
 
-        <div class="date-box">
-            <label for="datePicker">Pick a date:</label>
-            <input type="text" id="datePicker" placeholder="Choose a date ❤️" readonly>
+        <div class="booking-box">
+                <h2>💕 Pick a day 💕</h2>
 
-            <label for="timePicker">Pick a time:</label>
-            <input type="time" id="timePicker">
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <button class="calendar-nav" onclick="changeMonth(-1)">‹</button>
+                        <h3 id="calendarMonth"></h3>
+                    <button class="calendar-nav" onclick="changeMonth(1)">›</button>
+                </div>
 
-            <button class="send-choice" onclick="submitDate()">Send My Choice ❤️</button>
+        <div class="calendar-weekdays">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
         </div>
 
-        <p id="finalText"></p>
+        <div class="calendar-days" id="calendarDays"></div>
     </div>
+
+    <div class="time-section" id="timeSection">
+        <h2>💕 Pick a time 💕</h2>
+
+                <div class="time-options">
+                    <button class="time-btn" onclick="selectTime('12:00 PM')">12:00 PM</button>
+                    <button class="time-btn" onclick="selectTime('2:00 PM')">2:00 PM</button>
+                    <button class="time-btn" onclick="selectTime('5:30 PM')">5:30 PM</button>
+                    <button class="time-btn" onclick="selectTime('7:00 PM')">7:00 PM</button>
+                </div>
+    </div>
+
+    <button class="send-choice" onclick="submitDate()">Confirm Reservation ❤️</button>
+
+    <p id="finalText"></p>
+    </div>
+    
+</div>
 </div>
 
         <script src="script.js"></script>
