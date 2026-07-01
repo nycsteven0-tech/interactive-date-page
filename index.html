@@ -49,54 +49,53 @@
             </div>
         </div>
 
-       <!-- PAGE 4 -->
+<!-- PAGE 4 -->
 <div class="page" id="page4">
-    <div class="final-card">
-        <h1>WOOHOO 🎉</h1>
-        <p>Great choice. I promise it’ll be fun ❤️</p>
-        <p class="subtext">Now pick a day and time that works for you 😎</p>
-        <p>I can't wait to make some good memories together 😌</p>
+  <div class="final-card">
+    <h1>WOOHOO 🎉</h1>
 
-        <div class="booking-box">
-                <h2>💕 Pick a day 💕</h2>
+    <p>Great choice. I promise it'll be fun ❤️</p>
+    <p class="subtext">Now let’s make it official 😎</p>
 
-            <div class="calendar-card">
-                <div class="calendar-header">
-                    <button class="calendar-nav" onclick="changeMonth(-1)">‹</button>
-                        <h3 id="calendarMonth"></h3>
-                    <button class="calendar-nav" onclick="changeMonth(1)">›</button>
-                </div>
+    <div class="reservation-app">
+      <h2>💕 Pick a day 💕</h2>
 
-        <div class="calendar-weekdays">
-            <span>Sun</span>
-            <span>Mon</span>
-            <span>Tue</span>
-            <span>Wed</span>
-            <span>Thu</span>
-            <span>Fri</span>
-            <span>Sat</span>
+      <div class="calendar-shell">
+        <div class="calendar-top">
+          <button class="mini-btn" onclick="changeMonth(-1)">‹</button>
+          <h3 id="monthYear">Month Year</h3>
+          <button class="mini-btn" onclick="changeMonth(1)">›</button>
         </div>
 
-        <div class="calendar-days" id="calendarDays"></div>
-    </div>
+        <div class="weekdays">
+          <span>Sun</span>
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span>Sat</span>
+        </div>
 
-    <div class="time-section" id="timeSection">
+        <div class="days-grid" id="daysGrid"></div>
+      </div>
+
+      <div class="times-panel" id="timesPanel">
         <h2>💕 Pick a time 💕</h2>
 
-                <div class="time-options">
-                    <button class="time-btn" onclick="selectTime('12:00 PM')">12:00 PM</button>
-                    <button class="time-btn" onclick="selectTime('2:00 PM')">2:00 PM</button>
-                    <button class="time-btn" onclick="selectTime('5:30 PM')">5:30 PM</button>
-                    <button class="time-btn" onclick="selectTime('7:00 PM')">7:00 PM</button>
-                </div>
-    </div>
+        <div class="times-grid">
+          <button onclick="pickTime(this, '12:00 PM')">12:00 PM</button>
+          <button onclick="pickTime(this, '2:00 PM')">2:00 PM</button>
+          <button onclick="pickTime(this, '5:30 PM')">5:30 PM</button>
+          <button onclick="pickTime(this, '7:00 PM')">7:00 PM</button>
+        </div>
+      </div>
 
-    <button class="send-choice" onclick="submitDate()">Confirm Reservation ❤️</button>
+      <button class="confirm-btn" onclick="confirmReservation()">Confirm Reservation ❤️</button>
 
-    <p id="finalText"></p>
+      <div class="reservation-result" id="reservationResult"></div>
     </div>
-    
-</div>
+  </div>
 </div>
 
         <script src="script.js"></script>
