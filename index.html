@@ -1,112 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>HEY YOU ❤️</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HEY YOU ❤️</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <body>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-        <div class="container">
+<body>
 
-            <!-- PAGE 1 -->
-            <div class="page active" id="page1">
-                <h1>🚨 Important Question 🚨</h1>
-                <p>I could've just texted you... but I figured asking like this would be way more fun ❤️</p>
-                <p>(And honestly, I wanted an excuse to show off my coding skills 😎)</p>
-                <button onclick="nextPage(1)">Continue</button>
-            </div>
+  <div class="container">
 
-        <!-- PAGE 2 -->
-            <div class="page" id="page2">
-                <h1>Quick Analysis 📊</h1>
-                <p>You = pretty amazing</p>
-                <p>Me = pretty awesome</p>
-                <p>Us = statistically worth giving a chance ❤️</p>
-                <p>The numbers don't lie.</p>
-                <button onclick="nextPage(2)">Show Results</button>
-            </div>
-
-        <!-- PAGE 3 -->
-        <div class="page" id="page3">
-            <h1>So here’s the real question... ❤️</h1>
-            <p class="question-subtitle">
-                I think we'd have a pretty great time together 😌</p>
-            <div class="big-heart">❤️</div>
-            <p>Would you like to go on a date with me? 💌</p>
-
-            <div class="buttons">
-                <button class="yes" onclick="sayYes()">Yes 😍</button>
-                <button class="no" id="noBtn" onclick="sayNo()">No 🙈</button>
-            </div>
-        </div>
-
-<!-- PAGE 4 -->
-<div class="page" id="page4">
-  <div class="final-card">
-    <h1>WOOHOO 🎉</h1>
-
-    <p>Great choice. I promise it'll be fun ❤️</p>
-    <p class="subtext">Now let’s make it official 😎</p>
-
-    <div class="reservation-app">
-      <h2>💕 Pick a day 💕</h2>
-
-      <div class="calendar-shell">
-        <div class="calendar-top">
-          <button class="mini-btn" onclick="changeMonth(-1)">‹</button>
-          <h3 id="monthYear">Month Year</h3>
-          <button class="mini-btn" onclick="changeMonth(1)">›</button>
-        </div>
-
-        <div class="weekdays">
-          <span>Sun</span>
-          <span>Mon</span>
-          <span>Tue</span>
-          <span>Wed</span>
-          <span>Thu</span>
-          <span>Fri</span>
-          <span>Sat</span>
-        </div>
-
-        <div class="days-grid" id="daysGrid"></div>
-      </div>
-
-      <div class="times-panel" id="timesPanel">
-        <h2>💕 Pick a time 💕</h2>
-
-        <div class="times-grid">
-          <button onclick="pickTime(this, '12:00 PM')">12:00 PM</button>
-          <button onclick="pickTime(this, '2:00 PM')">2:00 PM</button>
-          <button onclick="pickTime(this, '5:30 PM')">5:30 PM</button>
-          <button onclick="pickTime(this, '7:00 PM')">7:00 PM</button>
-        </div>
-      </div>
-
-      <button class="confirm-btn" onclick="confirmReservation()">Confirm Reservation ❤️</button>
-
-      <div class="reservation-result" id="reservationResult"></div>
+    <!-- PAGE 1 -->
+    <div class="page active" id="page1">
+      <h1>🚨 Important Question 🚨</h1>
+      <p>I could've just texted you... but I figured asking like this would be way more fun ❤️</p>
+      <p>(And honestly, I wanted an excuse to show off my coding skills 😎)</p>
+      <button onclick="nextPage(1)">Continue</button>
     </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page2">
+      <h1>Quick Analysis 📊</h1>
+      <p>You = pretty amazing ✨</p>
+      <p>Me = pretty awesome 😎</p>
+      <p>Us = statistically worth giving a chance ❤️</p>
+      <p>The numbers don't lie.</p>
+      <button onclick="nextPage(2)">Show Results</button>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="page3">
+      <h1>So here's the real question... ❤️</h1>
+
+      <p class="question-subtitle">
+        I think we'd have a pretty great time together 😌
+      </p>
+
+      <div class="big-heart">❤️</div>
+
+      <p>Would you like to go on a date with me? 💌</p>
+
+      <div class="buttons">
+        <button class="yes" onclick="sayYes()">Yes 😍</button>
+        <button class="no" id="noBtn" onclick="sayNo()">No 🙈</button>
+      </div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page" id="page4">
+      <div class="final-card">
+        <h1>WOOHOO 🎉</h1>
+
+        <p>Great choice. I promise it'll be fun ❤️</p>
+        <p class="subtext">Now let’s make it official 😎</p>
+
+        <div class="reservation-app">
+          <h2>💕 Pick a day 💕</h2>
+
+          <div class="calendar-shell">
+            <div class="calendar-top">
+              <button class="mini-btn" onclick="changeMonth(-1)">‹</button>
+              <h3 id="monthYear">Month Year</h3>
+              <button class="mini-btn" onclick="changeMonth(1)">›</button>
+            </div>
+
+            <div class="weekdays">
+              <span>Sun</span>
+              <span>Mon</span>
+              <span>Tue</span>
+              <span>Wed</span>
+              <span>Thu</span>
+              <span>Fri</span>
+              <span>Sat</span>
+            </div>
+
+            <div class="days-grid" id="daysGrid"></div>
+          </div>
+
+          <div class="times-panel" id="timesPanel">
+            <h2>💕 Pick a time 💕</h2>
+
+            <div class="times-grid">
+              <button onclick="pickTime(this, '12:00 PM')">12:00 PM</button>
+              <button onclick="pickTime(this, '2:00 PM')">2:00 PM</button>
+              <button onclick="pickTime(this, '5:30 PM')">5:30 PM</button>
+              <button onclick="pickTime(this, '7:00 PM')">7:00 PM</button>
+            </div>
+          </div>
+
+          <button class="confirm-btn" onclick="confirmReservation()">Confirm Reservation ❤️</button>
+
+          <div class="reservation-result" id="reservationResult"></div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
 
-        <script src="script.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <audio id="bgMusic" loop>
+    <source src="romantic-dinner.mp3" type="audio/mpeg">
+  </audio>
 
-        <audio id="bgMusic" loop>
-            <source src="romantic-dinner.mp3" type="audio/mpeg">
-        </audio>
+  <div id="glowLayer"></div>
 
-        <div id="glowLayer"></div>
-   
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+
 </body>
-
 </html>
