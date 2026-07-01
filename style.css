@@ -7,8 +7,7 @@ body {
 
   background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
   background-size: 400% 400%;
-  animation: gradientBG 12s ease infinite;
-  transition: box-shadow 0.1s ease, filter 0.1s ease;
+  animation: gradientBG 30s ease infinite;
 
   min-height: 100vh;
   display: flex;
@@ -17,46 +16,30 @@ body {
 }
 
 @keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .container {
   position: relative;
   z-index: 2;
 
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 50px 40px;
+  width: 100%;
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 45px 38px;
 
-  background: rgba(50, 35, 45, 0.45);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(50, 35, 45, 0.48);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-  border:  1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.4);
   border-radius: 30px;
 
   box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.22),
-    0 0 25px rgba(255, 255, 255, 0.12);
-  animation: floatCard 5s ease-in-out infinite;
-}
-
-@keyframes floatCard {
-  0%,100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
+    0 18px 45px rgba(0, 0, 0, 0.24),
+    0 0 30px rgba(255, 182, 193, 0.18);
 }
 
 h1 {
@@ -85,13 +68,10 @@ p {
 button {
   width: 220px;
   max-width: 80%;
-
   padding: 15px 25px;
   margin-top: 20px;
-
   border: none;
   border-radius: 50px;
-
   cursor: pointer;
 
   font-size: 1rem;
@@ -99,7 +79,6 @@ button {
   font-family: inherit;
 
   transition: all 0.3s ease;
-
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
@@ -126,8 +105,31 @@ button:hover {
   position: relative;
 }
 
+.yes:hover {
+  box-shadow: 0 0 25px rgba(46, 204, 113, 0.8);
+}
+
 #noBtn {
   transition: 0.2s ease;
+}
+
+.question-subtitle {
+  opacity: 0.85;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.big-heart {
+  font-size: 3rem;
+  margin: 20px 0;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.2); }
 }
 
 .heart {
@@ -136,10 +138,8 @@ button:hover {
   top: 0;
   pointer-events: none;
   z-index: 9999;
-
   color: rgba(255, 105, 180, 0.85);
   font-size: 20px;
-
   animation: floatUp 6s linear forwards;
   will-change: transform, opacity;
 }
@@ -149,9 +149,7 @@ button:hover {
     transform: translate3d(0, 100vh, 0) scale(0.8);
     opacity: 0;
   }
-  10% {
-    opacity: 1;
-  }
+  10% { opacity: 1; }
   100% {
     transform: translate3d(0, -120vh, 0) scale(1.6);
     opacity: 0;
@@ -163,14 +161,10 @@ button:hover {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-
-  background: radial-gradient(circle at center,
-    rgba(255, 182, 193, 0.15),
-    transparent 60%
-  );
-
-  transition: background 0.1s ease, opacity 0.1s ease;
+  background: radial-gradient(circle at center, rgba(255, 182, 193, 0.15), transparent 60%);
 }
+
+/* PAGE 4 */
 
 #page4 {
   background: transparent;
@@ -211,185 +205,159 @@ button:hover {
   font-size: 1.1rem;
 }
 
-.date-box {
-  margin-top: 30px;
-}
+/* RESERVATION APP */
 
-.date-box label {
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.date-box input {
-  width: 260px;
-  max-width: 90%;
-
-  padding: 14px;
-
-  border: none;
-  border-radius: 15px;
-
-  font-size: 1rem;
-  font-family: inherit;
-  text-align: center;
-
-  margin-bottom: 15px;
-
-  background: rgba(255,255,255,0.9);
-  color: #333;
-
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-.date-box input:focus {
-  outline: none;
-  transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
-}
-
-.send-choice {
-  background: linear-gradient(45deg, #ff69b4, #ff1493);
-  color: white;
-}
-
-.yes:hover {
-  box-shadow: 0 0 25px rgba(46, 204, 113, 0.8);
-}
-
-.send-choice:hover {
-  box-shadow: 0 0 25px rgba(255, 20, 147, 0.8);
-}
-
-#finalText {
-  margin-top: 25px;
-  font-weight: 600;
-  font-size: 1.15rem;
-}
-
-.question-subtitle {
-  opacity: 0.85;
-  font-style: italic;
-  margin-bottom: 25px;
-}
-
-.big-heart {
-  font-size: 3rem;
-  margin: 20px 0;
-  animation: heartbeat 1.5s infinite;
-}
-
-@keyframes heartbeat {
-  0%,100% { transform: scale(1); }
-  25% { transform: scale(1.15); }
-  50% { transform: scale(1); }
-  75% { transform: scale(1.2); }
-}
-
-
-.booking-box {
+.reservation-app {
   margin-top: 25px;
 }
 
-.booking-box h2 {
-  font-size: 1.3rem;
+.reservation-app h2 {
+  font-size: 1.25rem;
   margin: 25px 0 15px;
 }
 
-.calendar-card {
-  padding: 20px;
-  border-radius: 25px;
+.calendar-shell {
+  padding: 22px;
+  border-radius: 26px;
   border: 1px solid rgba(255,255,255,0.35);
-  background: rgba(255,255,255,0.12);
-  box-shadow: inset 0 0 20px rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.10);
 }
 
-.calendar-header {
+.calendar-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 18px;
 }
 
-.calendar-header h3 {
+.calendar-top h3 {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
 }
 
-.calendar-nav {
-  width: 45px;
-  height: 45px;
+.mini-btn {
+  width: 44px;
+  height: 44px;
   padding: 0;
   margin: 0;
   border-radius: 14px;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.15);
   color: white;
   font-size: 1.8rem;
 }
 
-.calendar-weekdays,
-.calendar-days {
+.weekdays,
+.days-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
+  gap: 8px;
 }
 
-.calendar-weekdays {
-  margin-top: 20px;
+.weekdays {
+  margin-bottom: 12px;
+  font-size: 0.8rem;
   font-weight: 700;
   opacity: 0.85;
-  font-size: 0.85rem;
 }
 
-.calendar-day {
-  padding: 12px 0;
+.day {
+  padding: 10px 0;
   border-radius: 50%;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.25s ease;
-  font-weight: 600;
+  transition: 0.25s ease;
 }
 
-.calendar-day:hover {
+.day:hover {
   background: rgba(255,105,180,0.35);
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-.calendar-day.selected {
+.day.selected {
   background: linear-gradient(45deg, #ff69b4, #ff1493);
   box-shadow: 0 0 20px rgba(255,20,147,0.7);
-  transform: scale(1.12);
 }
 
-.calendar-day.disabled {
+.day.disabled {
   opacity: 0.25;
   pointer-events: none;
 }
 
-.time-section {
+.empty {
+  pointer-events: none;
+}
+
+.times-panel {
   display: none;
   animation: fadeInUp 0.6s ease;
 }
 
-.time-section.show {
+.times-panel.show {
   display: block;
 }
 
-.time-options {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.times-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(130px, 1fr));
+  gap: 14px;
 }
 
-.time-btn {
-  width: 140px;
+.times-grid button {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0;
   background: rgba(255,255,255,0.14);
   color: white;
   border: 1px solid rgba(255,255,255,0.3);
 }
 
-.time-btn.selected {
+.times-grid button.selected {
   background: linear-gradient(45deg, #ff69b4, #ff1493);
   box-shadow: 0 0 20px rgba(255,20,147,0.7);
+}
+
+.confirm-btn {
+  margin-top: 28px;
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  color: white;
+}
+
+.confirm-btn:hover {
+  box-shadow: 0 0 25px rgba(255, 20, 147, 0.8);
+}
+
+.reservation-result {
+  margin-top: 25px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 35px 22px;
+    margin: 20px auto;
+  }
+
+  h1,
+  #page4 h1 {
+    font-size: 2.2rem;
+  }
+
+  .calendar-shell {
+    padding: 16px;
+  }
+
+  .weekdays,
+  .days-grid {
+    gap: 5px;
+  }
+
+  .day {
+    padding: 8px 0;
+    font-size: 0.85rem;
+  }
+
+  .times-grid {
+    grid-template-columns: 1fr;
+  }
 }
