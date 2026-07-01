@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     </head>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -58,7 +59,7 @@
 
         <div class="date-box">
             <label for="datePicker">Pick a date:</label>
-            <input type="date" id="datePicker">
+            <input type="text" id="datePicker" placeholder="Choose a date ❤️" readonly>
 
             <label for="timePicker">Pick a time:</label>
             <input type="time" id="timePicker">
@@ -71,14 +72,14 @@
 </div>
 
         <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
         <audio id="bgMusic" loop>
             <source src="romantic-dinner.mp3" type="audio/mpeg">
         </audio>
 
         <div id="glowLayer"></div>
-
-    </body>
-
+   
+</body>
 
 </html>
