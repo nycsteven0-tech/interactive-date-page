@@ -210,12 +210,11 @@ function confirmReservation() {
     return;
   }
 
-function sendToSheet(data) {
-  fetch(SCRIPT_URL, {
-    method: "POST",
-    body: JSON.stringify(data)
-  }).catch(err => console.log("Error sending:", err));
-}
+  sendToSheet({
+    response: "Reservation confirmed ❤️",
+    selectedDate: selectedDate,
+    selectedTime: selectedTime
+  });
 
   result.innerHTML = `
     ✨ Perfect ❤️ Your reservation with Steven has been confirmed ✨<br><br>
@@ -229,12 +228,9 @@ function sendToSheet(data) {
 }
 
 // GOOGLE SHEETS
-function sendToSheet(answer) {
+function sendToSheet(data) {
   fetch(SCRIPT_URL, {
     method: "POST",
-    body: JSON.stringify({
-      answer: answer,
-      time: new Date().toLocaleString()
-    })
+    body: JSON.stringify(data)
   }).catch(err => console.log("Error sending:", err));
 }
