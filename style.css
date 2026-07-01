@@ -275,13 +275,6 @@ button:hover {
   transform: scale(1.12);
 }
 
-.day.selected {
-  background: transparent;
-  box-shadow: none;
-  color: white;
-  transform: scale(1.15);
-}
-
 /* two tiny hearts around hovered/selected day */
 .day::before,
 .day::after {
