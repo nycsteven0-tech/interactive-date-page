@@ -152,9 +152,12 @@ function renderCalendar() {
     dayButton.classList.add("day");
     dayButton.innerText = day;
 
-    if (thisDate < today) {
-      dayButton.classList.add("disabled");
-    }
+const dayOfWeek = thisDate.getDay(); // 0 Sun, 1 Mon, 2 Tue, 3 Wed
+
+if (thisDate < today || dayOfWeek === 2 || dayOfWeek === 3) {
+  dayButton.classList.add("disabled");
+  dayButton.title = "Tuesdays and Wednesdays are usually busy for me 😅";
+}
 
     dayButton.addEventListener("click", () => {
       pickDate(dayButton, day, month, year);
