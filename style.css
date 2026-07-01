@@ -289,11 +289,11 @@ button:hover {
 }
 
 .day::before {
-  left: 6px;
+  left: 12px;
 }
 
 .day::after {
-  right: 6px;
+  right: 12px;
 }
 
 .day:hover::before,
