@@ -361,3 +361,10 @@ button:hover {
     grid-template-columns: 1fr;
   }
 }
+
+.times-grid button span {
+  display: block;
+  margin-top: 5px;
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
