@@ -50,6 +50,8 @@ window.addEventListener("DOMContentLoaded", () => {
   if (noBtn) {
     noBtn.addEventListener("mouseover", moveButton);
   }
+
+  renderCalendar();
 });
 
 // RUNAWAY BUTTON
@@ -159,24 +161,23 @@ function sendToSheet(answer) {
 }
 
 function submitDate() {
-  const date = document.getElementById("datePicker").value;
-  const time = document.getElementById("timePicker").value;
   const finalText = document.getElementById("finalText");
 
-  if (!date || !time) {
+  if (!selectedDate || !selectedTime) {
     alert("Pick a date and time first ❤️");
     return;
   }
 
-  const dateTimeAnswer = `She picked ${date} at ${time} ❤️`;
+  const reservation = `Reservation confirmed: ${selectedDate} at ${selectedTime} ❤️`;
 
-  sendToSheet(dateTimeAnswer);
+  sendToSheet(reservation);
 
   finalText.innerHTML = `
     ✨ Perfect ❤️ Your reservation with Steven has been confirmed ✨<br><br>
-    📅 <strong>${date}</strong><br>
-    🕒 <strong>${time}</strong><br><br>
-    Looking forward to seeing you 😌
+    📅 <strong>${selectedDate}</strong><br>
+    🕒 <strong>${selectedTime}</strong><br><br>
+    Looking forward to seeing you 😌<br><br>
+    ❤️ Thanks for saying yes ❤️
   `;
 }
 
@@ -185,3 +186,84 @@ flatpickr("#datePicker", {
   dateFormat: "F j, Y",
   disableMobile: true
 });
+
+let selectedDate = "";
+let selectedTime = "";
+
+let calendarDate = new Date();
+
+const monthNames = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+function renderCalendar() {
+  const calendarMonth = document.getElementById("calendarMonth");
+  const calendarDays = document.getElementById("calendarDays");
+
+  if (!calendarMonth || !calendarDays) return;
+
+  const year = calendarDate.getFullYear();
+  const month = calendarDate.getMonth();
+
+  calendarMonth.innerText = `${monthNames[month]} ${year}`;
+  calendarDays.innerHTML = "";
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  for (let i = 0; i < firstDay; i++) {
+    const emptyDay = document.createElement("div");
+    calendarDays.appendChild(emptyDay);
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayEl = document.createElement("div");
+    const thisDate = new Date(year, month, day);
+
+    dayEl.classList.add("calendar-day");
+    dayEl.innerText = day;
+
+    if (thisDate < today) {
+      dayEl.classList.add("disabled");
+    }
+
+    dayEl.addEventListener("click", () => {
+      selectDate(day, month, year, dayEl);
+    });
+
+    calendarDays.appendChild(dayEl);
+  }
+}
+
+function selectDate(day, month, year, dayEl) {
+  document.querySelectorAll(".calendar-day").forEach(d => {
+    d.classList.remove("selected");
+  });
+
+  dayEl.classList.add("selected");
+
+  selectedDate = `${monthNames[month]} ${day}, ${year}`;
+
+  const timeSection = document.getElementById("timeSection");
+  if (timeSection) {
+    timeSection.classList.add("show");
+  }
+}
+
+function changeMonth(direction) {
+  calendarDate.setMonth(calendarDate.getMonth() + direction);
+  renderCalendar();
+}
+
+function selectTime(time) {
+  selectedTime = time;
+
+  document.querySelectorAll(".time-btn").forEach(btn => {
+    btn.classList.remove("selected");
+  });
+
+  event.target.classList.add("selected");
+}
