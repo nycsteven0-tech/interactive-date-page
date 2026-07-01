@@ -375,3 +375,37 @@ button:hover {
   font-size: 0.9rem;
   opacity: 0.8;
 }
+
+
+.day {
+    position: relative;
+    overflow: visible;
+}
+
+.day::before,
+.day::after {
+    content: "❤";
+    position: absolute;
+    color: #ff4f93;
+    opacity: 0;
+    transition: all .25s ease;
+    font-size: 12px;
+}
+
+.day::before{
+    left:-8px;
+    top:50%;
+    transform:translateY(-50%) scale(.7);
+}
+
+.day::after{
+    right:-8px;
+    top:50%;
+    transform:translateY(-50%) scale(.7);
+}
+
+.day:hover::before,
+.day:hover::after{
+    opacity:1;
+    transform:translateY(-50%) scale(1);
+}
