@@ -55,9 +55,11 @@ function sayYes() {
 
 // NO BUTTON
 function sayNo() {
-  sendToSheet("No 🙈");
-  alert("That answer is currently under review... 🤔");
-}
+  sendToSheet({
+  response: "No 🙈",
+  selectedDate: "",
+  selectedTime: ""
+});
 
 // RUNAWAY NO BUTTON
 function moveButton() {
