@@ -32,7 +32,11 @@ function nextPage(page) {
 
 // YES BUTTON
 function sayYes() {
-  sendToSheet("Yes 😍 - Waiting for date/time");
+  sendToSheet({
+  response: "Yes 😍 - Waiting for date/time",
+  selectedDate: "",
+  selectedTime: ""
+});
 
   document.getElementById("page3")?.classList.remove("active");
   document.getElementById("page4")?.classList.add("active");
@@ -206,8 +210,12 @@ function confirmReservation() {
     return;
   }
 
-  const reservation = `Reservation confirmed: ${selectedDate} at ${selectedTime} ❤️`;
-  sendToSheet(reservation);
+function sendToSheet(data) {
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  }).catch(err => console.log("Error sending:", err));
+}
 
   result.innerHTML = `
     ✨ Perfect ❤️ Your reservation with Steven has been confirmed ✨<br><br>
