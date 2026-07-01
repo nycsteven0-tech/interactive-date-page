@@ -179,3 +179,9 @@ function submitDate() {
     Looking forward to seeing you 😌
   `;
 }
+
+flatpickr("#datePicker", {
+  minDate: "today",
+  dateFormat: "F j, Y",
+  disableMobile: true
+});
