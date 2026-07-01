@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwGf0e_5TLfin7Lgbs7W-DCfKsNZDvJWaP2JB9h4YqxsO6EZ6IH52IriDN55WXgArQ/exec"
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyk7qbguvL-co7wSxQ9YG49rGyr3A2PWRK0xyez8VMXV2hpX6OisPOnpjANghtTlLY/exec"
 
 let currentPage = 1;
 let selectedDate = "";
