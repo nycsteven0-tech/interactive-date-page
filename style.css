@@ -418,3 +418,29 @@ button:hover {
     grid-template-columns: 1fr;
   }
 }
+
+
+
+
+
+.or-divider{
+    margin:25px 0 15px;
+    opacity:.75;
+    font-size:.95rem;
+}
+
+.custom-time-box{
+    display:flex;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.custom-time-box input{
+    padding:12px 18px;
+    border:none;
+    border-radius:16px;
+    font-size:1rem;
+    font-family:inherit;
+    background:rgba(255,255,255,.9);
+    color:#444;
+}
