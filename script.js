@@ -229,3 +229,8 @@ function sendToSheet(data) {
     body: JSON.stringify(data)
   }).catch(err => console.log("Error sending:", err));
 }
+
+
+function pickCustomTime(time) {
+    selectedTime = time;
+}
