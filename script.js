@@ -15,9 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("page1")?.classList.add("active");
 
   const noBtn = document.getElementById("noBtn");
-  if (noBtn) {
-    noBtn.addEventListener("mouseover", moveButton);
-  }
+  if (noBtn) noBtn.addEventListener("mouseover", moveButton);
 
   renderCalendar();
 });
@@ -29,12 +27,6 @@ function nextPage(page) {
 }
 
 function sayYes() {
-  sendToSheet({
-    response: "Yes 😍 - Waiting for date/time",
-    selectedDate: "",
-    selectedTime: ""
-  });
-
   document.getElementById("page3")?.classList.remove("active");
   document.getElementById("page4")?.classList.add("active");
 
@@ -63,11 +55,9 @@ function sayNo() {
 function moveButton() {
   const noBtn = document.getElementById("noBtn");
   const container = document.querySelector(".container");
-
   if (!noBtn || !container) return;
 
   const rect = container.getBoundingClientRect();
-
   const x = Math.random() * (rect.width - 160);
   const y = Math.random() * (rect.height - 90);
 
@@ -118,15 +108,12 @@ function createHeart() {
 
   document.body.appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 7000);
+  setTimeout(() => heart.remove(), 7000);
 }
 
 function renderCalendar() {
   const monthYear = document.getElementById("monthYear");
   const daysGrid = document.getElementById("daysGrid");
-
   if (!monthYear || !daysGrid) return;
 
   const year = calendarDate.getFullYear();
@@ -195,7 +182,18 @@ function pickTime(button, time) {
     btn.classList.remove("selected");
   });
 
+  const customTime = document.getElementById("customTime");
+  if (customTime) customTime.value = "";
+
   button.classList.add("selected");
+}
+
+function pickCustomTime(time) {
+  selectedTime = time;
+
+  document.querySelectorAll(".times-grid button").forEach(btn => {
+    btn.classList.remove("selected");
+  });
 }
 
 function confirmReservation() {
@@ -212,12 +210,13 @@ function confirmReservation() {
     selectedTime: selectedTime
   });
 
-  // Disable button after reservation
   const confirmBtn = document.querySelector(".confirm-btn");
-  confirmBtn.disabled = true;
-  confirmBtn.innerText = "Reserved ❤️";
-  confirmBtn.style.opacity = "0.6";
-  confirmBtn.style.cursor = "not-allowed";
+  if (confirmBtn) {
+    confirmBtn.disabled = true;
+    confirmBtn.innerText = "Reserved ❤️";
+    confirmBtn.style.opacity = "0.6";
+    confirmBtn.style.cursor = "not-allowed";
+  }
 
   result.innerHTML = `
     ✨ Perfect ❤️ Your reservation with Steven has been confirmed ✨<br><br>
@@ -240,9 +239,3 @@ function sendToSheet(data) {
     body: JSON.stringify(data)
   }).catch(err => console.log("Error sending:", err));
 }
-
-
-function pickCustomTime(time) {
-    selectedTime = time;
-}
-
