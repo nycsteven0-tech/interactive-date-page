@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyk7qbguvL-co7wSxQ9YG49rGyr3A2PWRK0xyez8VMXV2hpX6OisPOnpjANghtTlLY/exec"
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyk7qbguvL-co7wSxQ9YG49rGyr3A2PWRK0xyez8VMXV2hpX6OisPOnpjANghtTlLY/exec";
 
 let currentPage = 1;
 let selectedDate = "";
@@ -56,10 +56,13 @@ function sayYes() {
 // NO BUTTON
 function sayNo() {
   sendToSheet({
-  response: "No 🙈",
-  selectedDate: "",
-  selectedTime: ""
-});
+    response: "No 🙈",
+    selectedDate: "",
+    selectedTime: ""
+  });
+
+  alert("That answer is currently under review... 🤔");
+}
 
 // RUNAWAY NO BUTTON
 function moveButton() {
