@@ -234,3 +234,7 @@ function sendToSheet(data) {
 function pickCustomTime(time) {
     selectedTime = time;
 }
+
+const confirmBtn = document.querySelector(".confirm-btn");
+confirmBtn.disabled = true;
+confirmBtn.innerText = "Reserved ❤️";
