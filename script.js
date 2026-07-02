@@ -11,7 +11,6 @@ const monthNames = [
   "July", "August", "September", "October", "November", "December"
 ];
 
-// INIT
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("page1")?.classList.add("active");
 
@@ -23,20 +22,18 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCalendar();
 });
 
-// PAGE NAVIGATION
 function nextPage(page) {
   document.getElementById(`page${page}`)?.classList.remove("active");
   document.getElementById(`page${page + 1}`)?.classList.add("active");
   currentPage++;
 }
 
-// YES BUTTON
 function sayYes() {
   sendToSheet({
-  response: "Yes 😍 - Waiting for date/time",
-  selectedDate: "",
-  selectedTime: ""
-});
+    response: "Yes 😍 - Waiting for date/time",
+    selectedDate: "",
+    selectedTime: ""
+  });
 
   document.getElementById("page3")?.classList.remove("active");
   document.getElementById("page4")?.classList.add("active");
@@ -53,7 +50,6 @@ function sayYes() {
   playMusicFadeIn();
 }
 
-// NO BUTTON
 function sayNo() {
   sendToSheet({
     response: "No 🙈",
@@ -64,7 +60,6 @@ function sayNo() {
   alert("That answer is currently under review... 🤔");
 }
 
-// RUNAWAY NO BUTTON
 function moveButton() {
   const noBtn = document.getElementById("noBtn");
   const container = document.querySelector(".container");
@@ -84,7 +79,6 @@ function moveButton() {
   noBtn.innerText = phrases[Math.floor(Math.random() * phrases.length)];
 }
 
-// MUSIC + HEARTS
 function playMusicFadeIn() {
   const music = document.getElementById("bgMusic");
   if (!music) return;
@@ -129,7 +123,6 @@ function createHeart() {
   }, 7000);
 }
 
-// CALENDAR
 function renderCalendar() {
   const monthYear = document.getElementById("monthYear");
   const daysGrid = document.getElementById("daysGrid");
@@ -157,16 +150,15 @@ function renderCalendar() {
   for (let day = 1; day <= daysInMonth; day++) {
     const dayButton = document.createElement("div");
     const thisDate = new Date(year, month, day);
+    const dayOfWeek = thisDate.getDay();
 
     dayButton.classList.add("day");
     dayButton.innerText = day;
 
-const dayOfWeek = thisDate.getDay(); // 0 Sun, 1 Mon, 2 Tue, 3 Wed
-
-if (thisDate < today || dayOfWeek === 2 || dayOfWeek === 3) {
-  dayButton.classList.add("disabled");
-  dayButton.title = "Tuesdays and Wednesdays are usually busy for me 😅";
-}
+    if (thisDate < today || dayOfWeek === 2 || dayOfWeek === 3) {
+      dayButton.classList.add("disabled");
+      dayButton.title = "Tuesdays and Wednesdays are usually busy for me 😅";
+    }
 
     dayButton.addEventListener("click", () => {
       pickDate(dayButton, day, month, year);
@@ -206,7 +198,6 @@ function pickTime(button, time) {
   button.classList.add("selected");
 }
 
-// CONFIRM RESERVATION
 function confirmReservation() {
   const result = document.getElementById("reservationResult");
 
@@ -232,7 +223,6 @@ function confirmReservation() {
   confetti({ particleCount: 120, spread: 90, origin: { y: 0.65 } });
 }
 
-// GOOGLE SHEETS
 function sendToSheet(data) {
   fetch(SCRIPT_URL, {
     method: "POST",
