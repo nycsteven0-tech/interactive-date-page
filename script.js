@@ -212,6 +212,13 @@ function confirmReservation() {
     selectedTime: selectedTime
   });
 
+  // Disable button after reservation
+  const confirmBtn = document.querySelector(".confirm-btn");
+  confirmBtn.disabled = true;
+  confirmBtn.innerText = "Reserved ❤️";
+  confirmBtn.style.opacity = "0.6";
+  confirmBtn.style.cursor = "not-allowed";
+
   result.innerHTML = `
     ✨ Perfect ❤️ Your reservation with Steven has been confirmed ✨<br><br>
     📅 <strong>${selectedDate}</strong><br>
@@ -220,7 +227,11 @@ function confirmReservation() {
     ❤️ Thanks for saying yes ❤️
   `;
 
-  confetti({ particleCount: 120, spread: 90, origin: { y: 0.65 } });
+  confetti({
+    particleCount: 120,
+    spread: 90,
+    origin: { y: 0.65 }
+  });
 }
 
 function sendToSheet(data) {
@@ -235,6 +246,3 @@ function pickCustomTime(time) {
     selectedTime = time;
 }
 
-const confirmBtn = document.querySelector(".confirm-btn");
-confirmBtn.disabled = true;
-confirmBtn.innerText = "Reserved ❤️";
